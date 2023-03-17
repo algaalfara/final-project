@@ -1,0 +1,62 @@
+START
+
+PRINT "Selamat datang di program To-Do List"
+
+IF daftar tugas ada
+PRINT "Daftar tugas: "
+FOR setiap tugas dalam daftar tugas
+PRINT tugas
+ENDFOR
+ENDIF
+
+WHILE true
+PRINT "Menu:"
+PRINT "a. Tambahkan tugas baru"
+PRINT "b. Tandai tugas selesai"
+PRINT "c. Hapus tugas"
+PRINT "d. Keluar"
+
+INPUT pilihan
+
+IF pilihan = "a"
+PRINT "Masukkan nama tugas baru:"
+INPUT nama_tugas
+TAMBAHKAN nama_tugas ke daftar tugas
+PRINT "Tugas '" + nama_tugas + "' telah ditambahkan ke daftar."
+
+ELSE IF pilihan = "b"
+IF daftar tugas kosong
+PRINT "Daftar tugas kosong."
+ELSE
+PRINT "Pilih tugas yang ingin ditandai selesai:"
+FOR setiap tugas dalam daftar tugas
+PRINT tugas
+ENDFOR
+INPUT indeks_tugas
+TANDAI daftar tugas[indeks_tugas] sebagai selesai
+PRINT "Tugas '" + daftar tugas[indeks_tugas] + "' telah ditandai selesai."
+ENDIF
+
+ELSE IF pilihan = "c"
+IF daftar tugas kosong
+PRINT "Daftar tugas kosong."
+ELSE
+PRINT "Pilih tugas yang ingin dihapus:"
+FOR setiap tugas dalam daftar tugas
+PRINT tugas
+ENDFOR
+INPUT indeks_tugas
+HAPUS daftar tugas[indeks_tugas] dari daftar tugas
+PRINT "Tugas telah dihapus dari daftar."
+ENDIF
+
+ELSE IF pilihan = "d"
+PRINT "Keluar dari program To-Do List."
+BREAK
+
+ELSE
+PRINT "Pilihan tidak valid. Silakan coba lagi."
+
+ENDWHILE
+
+STOP
